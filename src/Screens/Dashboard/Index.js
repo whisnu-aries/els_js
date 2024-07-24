@@ -2,13 +2,15 @@ import { View } from "react-native";
 import * as Icons from "react-native-heroicons/solid";
 
 import CardProfile from "./CardProfile";
+import CarouselAnnouncement from "./CarouselAnnouncement";
 import { styles } from "./Index_style";
+import { Colors } from "../../Constants/Colors";
 
 export default function Dashboard() {
   const BuildingIcon = (
-    <Icons.BuildingOfficeIcon style={styles.icon} size={32} />
+    <Icons.BuildingOfficeIcon color={Colors.primary} size={32} />
   );
-  const HomeIcon = <Icons.HomeIcon style={styles.icon} size={32} />;
+  const HomeIcon = <Icons.HomeIcon color={Colors.primary} size={32} />;
 
   const service = {
     icon: BuildingIcon,
@@ -40,6 +42,7 @@ export default function Dashboard() {
         service={service}
         homecells={homecells}
       />
+      <CarouselAnnouncement />
     </View>
   );
 }

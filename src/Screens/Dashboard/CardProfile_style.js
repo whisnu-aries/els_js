@@ -4,7 +4,7 @@ import { Colors } from "../../Constants/Colors";
 export const styles = StyleSheet.create({
   container: {
     padding: 8,
-    paddingBottom: 32,
+    marginBottom: 8,
   },
   title: {
     fontSize: 18,
@@ -17,9 +17,8 @@ export const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: Colors.white,
     borderRadius: 8,
-    opacity: 0.8,
     elevation: 5,
-    shadowColor: Colors.gray,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3,

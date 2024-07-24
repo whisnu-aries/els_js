@@ -25,7 +25,7 @@ export default function CardProfile({
   }
 
   return (
-    <>
+    <View style={styles.container}>
       <Text style={styles.title}>Hi! Welcome to {church}</Text>
       <View style={styles.cardContainer}>
         <View style={styles.cardHeader}>
@@ -68,6 +68,6 @@ export default function CardProfile({
           </View>
         </ScrollView>
       </View>
-    </>
+    </View>
   );
 }
