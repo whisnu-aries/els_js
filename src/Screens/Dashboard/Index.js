@@ -1,12 +1,16 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
 import * as Icons from "react-native-heroicons/solid";
 
-import CardProfile from "./CardProfile";
-import CarouselAnnouncement from "./CarouselAnnouncement";
 import { styles } from "./Index_style";
 import { Colors } from "../../Constants/Colors";
 
+import CardProfile from "./CardProfile";
+import CarouselAnnouncement from "./CarouselAnnouncement";
+
 export default function Dashboard() {
+  const { t } = useTranslation();
+
   const BuildingIcon = (
     <Icons.BuildingOfficeIcon color={Colors.primary} size={32} />
   );
@@ -36,7 +40,7 @@ export default function Dashboard() {
   return (
     <View style={styles.container}>
       <CardProfile
-        church="ECC Jakarta"
+        church="ECC Bandung"
         name="John Doe"
         code="ECC-JKT 123QWE"
         service={service}

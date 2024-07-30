@@ -1,7 +1,9 @@
 import { Image, ScrollView, Pressable, Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
 import * as Icons from "react-native-heroicons/solid";
 
 import { styles } from "./CardProfile_style";
+
 import Divider from "../../Components/Divider";
 import IconPills from "../../Components/Pills/PillsDescWithIcon/IconPills";
 
@@ -12,6 +14,8 @@ export default function CardProfile({
   service,
   homecells,
 }) {
+  const { t } = useTranslation();
+
   function handleClickProfile() {
     console.log("profile");
   }
@@ -26,7 +30,7 @@ export default function CardProfile({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Hi! Welcome to {church}</Text>
+      <Text style={styles.title}>{t("welcomeTitle", { church })}</Text>
       <View style={styles.cardContainer}>
         <View style={styles.cardHeader}>
           <Image
