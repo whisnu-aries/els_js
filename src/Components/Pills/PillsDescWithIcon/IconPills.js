@@ -1,7 +1,9 @@
 import { Pressable, Text, View } from "react-native";
-import { styles } from "./IconPills_style";
+import PropTypes from "prop-types";
 
-export default function IconPills({ icon, title, description }) {
+import { styles } from "./IconPills.style";
+
+const IconPills = ({ icon, title, description }) => {
   return (
     <Pressable onPress={() => console.log("Service / Homecell")}>
       <View style={styles.pillContainer}>
@@ -13,4 +15,12 @@ export default function IconPills({ icon, title, description }) {
       </View>
     </Pressable>
   );
-}
+};
+
+IconPills.propTypes = {
+  icon: PropTypes.element.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
+
+export default IconPills;

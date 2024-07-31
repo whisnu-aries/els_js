@@ -1,77 +1,96 @@
 import { Image, ScrollView, Pressable, Text, View } from "react-native";
-import { useTranslation } from "react-i18next";
 import * as Icons from "react-native-heroicons/solid";
+import PropTypes from "prop-types";
 
-import { styles } from "./CardProfile_style";
+import { styles } from "./CardProfile.style";
 
 import Divider from "../../Components/Divider";
 import IconPills from "../../Components/Pills/PillsDescWithIcon/IconPills";
 
-export default function CardProfile({
-  church,
-  name,
-  code,
-  service,
-  homecells,
-}) {
+import { useTranslation } from "react-i18next";
+
+const handleClick = (action) => console.log(action); // Generic handler
+
+const renderWelcomeChurch = (church) => {
   const { t } = useTranslation();
+  return <Text style={styles.title}>{t("welcomeTitle", { church })}</Text>;
+};
 
-  function handleClickProfile() {
-    console.log("profile");
-  }
+const renderProfileImage = () => (
+  <Image
+    style={styles.avatar}
+    source={{ uri: "https://via.placeholder.com/50" }} // Replace with your image source
+  />
+);
 
-  function handleClickQr() {
-    console.log("qr");
-  }
+const renderProfileAccount = (name, code) => (
+  <Pressable
+    style={styles.nameContainer}
+    onPress={() => handleClick("profile")}
+  >
+    <View>
+      <Text style={styles.name}>{name}</Text>
+      <Text style={styles.code}>{code}</Text>
+    </View>
+  </Pressable>
+);
 
-  function handleClickNotification() {
-    console.log("notification");
-  }
+const renderProfileButton = () => (
+  <View style={styles.iconContainer}>
+    <Pressable onPress={() => handleClick("qr")}>
+      <Icons.QrCodeIcon style={styles.icon} size={30} />
+    </Pressable>
+    <Pressable onPress={() => handleClick("notification")}>
+      <Icons.BellIcon style={styles.icon} size={30} />
+    </Pressable>
+  </View>
+);
 
+const renderProfile = (name, code) => (
+  <View style={styles.cardHeader}>
+    {renderProfileImage()}
+    {renderProfileAccount(name, code)}
+    {renderProfileButton()}
+  </View>
+);
+
+const renderPill = (item) => (
+  <IconPills
+    key={item.id}
+    icon={item.icon}
+    title={item.title}
+    description={item.description}
+  />
+);
+
+const renderProfilePills = (service, homecells) => (
+  <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+    <View style={styles.homecellContainer}>
+      {renderPill(service)}
+      {homecells.map((item) => renderPill(item))}
+    </View>
+  </ScrollView>
+);
+
+const CardProfile = ({ church, name, code, service, homecells }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{t("welcomeTitle", { church })}</Text>
+      {renderWelcomeChurch(church)}
       <View style={styles.cardContainer}>
-        <View style={styles.cardHeader}>
-          <Image
-            style={styles.avatar}
-            source={{ uri: "https://via.placeholder.com/50" }} // Replace with your image source
-          />
-          <Pressable style={styles.nameContainer} onPress={handleClickProfile}>
-            <View>
-              <Text style={styles.name}>{name}</Text>
-              <Text style={styles.code}>{code}</Text>
-            </View>
-          </Pressable>
-          <View style={styles.iconContainer}>
-            <Pressable onPress={handleClickQr}>
-              <Icons.QrCodeIcon style={styles.icon} size={30} />
-            </Pressable>
-            <Pressable onPress={handleClickNotification}>
-              <Icons.BellIcon style={styles.icon} size={30} />
-            </Pressable>
-          </View>
-        </View>
+        {renderProfile(name, code)}
         <Divider />
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <View style={styles.homecellContainer}>
-            <IconPills
-              key={1}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-            />
-            {homecells.map((item) => (
-              <IconPills
-                key={item.id}
-                icon={item.icon}
-                title={item.title}
-                description={item.description}
-              />
-            ))}
-          </View>
-        </ScrollView>
+        {renderProfilePills(service, homecells)}
       </View>
     </View>
   );
-}
+};
+
+CardProfile.propTypes = {
+  church: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired,
+  service: PropTypes.object.isRequired,
+  homecells: PropTypes.array.isRequired,
+};
+
+export default CardProfile;
