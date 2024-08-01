@@ -11,28 +11,28 @@ const data = [
     image: "https://via.placeholder.com/400",
     title: "Announcement 1",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris orci.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris orci adipiscing elit. Mauris orci.",
   },
   {
     id: 2,
     image: "https://via.placeholder.com/400",
     title: "Announcement 2",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris orci.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris orci adipiscing elit. Mauris orci.",
   },
   {
     id: 3,
     image: "https://via.placeholder.com/400",
     title: "Announcement 3",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris orci.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris orci adipiscing elit. Mauris orci.",
   },
   {
     id: 4,
     image: "https://via.placeholder.com/400",
     title: "Announcement 4",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris orci.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris orci adipiscing elit. Mauris orci.",
   },
 ];
 /**

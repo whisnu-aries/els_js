@@ -6,14 +6,16 @@ import { styles } from "./AnnouncementCard.style";
 const AnnouncementCard = ({ image, title, description }) => {
   return (
     <View style={styles.cardInnerContainer}>
-      <Image
-        source={{
-          uri: image,
-        }}
-        width={"100%"}
-        height={200}
-        style={styles.backgroundImage}
-      />
+      <View style={styles.imageContainer}>
+        <Image
+          source={{
+            uri: image,
+          }}
+          width={"100%"}
+          height={200}
+          style={styles.backgroundImage}
+        />
+      </View>
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>{title}</Text>
         <Text style={styles.descriptionText}>{description}</Text>

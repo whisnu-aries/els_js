@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { View, FlatList, Dimensions, TouchableOpacity } from "react-native";
+import {
+  View,
+  FlatList,
+  Dimensions,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import PropTypes from "prop-types";
 import * as Icons from "react-native-heroicons/solid";
 
@@ -12,6 +18,7 @@ import { Colors } from "../../Constants/Colors";
 const screenWidth = Dimensions.get("window").width;
 
 const renderItem = ({ item }) => {
+  console.log(item);
   return (
     <AnnouncementCard
       image={item.image}
@@ -20,6 +27,28 @@ const renderItem = ({ item }) => {
     />
   );
 };
+
+const renderCarousel = (data) => (
+  <FlatList
+    data={data}
+    horizontal
+    pagingEnabled
+    showsHorizontalScrollIndicator={false}
+    renderItem={renderItem}
+    keyExtractor={(item) => item.id}
+    contentContainerStyle={{
+      width: (screenWidth - 16) * data.length,
+    }}
+  />
+);
+
+const renderCarouselIndicator = (data, currentIndex) => (
+  <View style={styles.indicators}>
+    {Array.from({ length: data.length }, (_, index) => (
+      <Indicator key={index} isActive={index === currentIndex} />
+    ))}
+  </View>
+);
 
 const Carousel = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,33 +63,6 @@ const Carousel = ({ data }) => {
     setCurrentIndex(newIndex);
   };
 
-  const renderCarousel = () => (
-    <FlatList
-      data={data}
-      horizontal={true}
-      pagingEnabled={true}
-      showsHorizontalScrollIndicator={false}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-      snapToInterval={screenWidth}
-      contentContainerStyle={{ alignItems: "center", justifyContent: "center" }}
-      initialNumToRender={data.length} // Optimize rendering
-      getItemLayout={(data, index) => ({
-        length: screenWidth,
-        offset: screenWidth * index,
-        index,
-      })} // Improve performance
-    />
-  );
-
-  const renderCarouselIndicator = () => (
-    <View style={styles.indicators}>
-      {Array.from({ length: data.length }, (_, index) => (
-        <Indicator key={index} isActive={index === currentIndex} />
-      ))}
-    </View>
-  );
-
   const renderCarouselButton = () => (
     <>
       <TouchableOpacity onPress={handlePrev} style={styles.prevButton}>
@@ -74,9 +76,9 @@ const Carousel = ({ data }) => {
 
   return (
     <View style={styles.carouselContainer}>
-      {renderCarousel()}
-      {renderCarouselIndicator()}
+      {renderCarousel(data)}
       {renderCarouselButton()}
+      {renderCarouselIndicator(data, currentIndex)}
     </View>
   );
 };
