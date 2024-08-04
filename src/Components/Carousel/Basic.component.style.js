@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     marginVertical: 8,
   },
   indicators: {
+    marginTop: 12,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
@@ -13,13 +14,13 @@ export const styles = StyleSheet.create({
   prevButton: {
     position: "absolute",
     top: "50%",
-    left: 0,
-    transform: [{ translateY: -15 }],
+    left: 16,
+    transform: [{ translateY: -16 }],
   },
   nextButton: {
     position: "absolute",
     top: "50%",
-    right: 0,
-    transform: [{ translateY: -15 }],
+    right: 16,
+    transform: [{ translateY: -16 }],
   },
 });

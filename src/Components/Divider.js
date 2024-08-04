@@ -9,5 +9,6 @@ const styles = StyleSheet.create({
   divider: {
     height: 1, // Set the desired thickness of the divider
     backgroundColor: Colors.gray, // Set the divider color
+    marginVertical: 16,
   },
 });

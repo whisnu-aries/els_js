@@ -1,11 +1,27 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { Colors } from "../../Constants/Colors";
-
-const screenWidth = Dimensions.get("window").width;
+import AnnouncementCard from "../../Components/Card/EventCard";
 
 export const styles = StyleSheet.create({
+  announcementContainer: {
+    marginVertical: 16,
+    paddingHorizontal: 16,
+  },
+  sectionTitle: {
+    fontWeight: "semibold",
+    fontSize: 24,
+  },
+  announcementTitleContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  announcementLink: {
+    fontWeight: "light",
+    color: Colors.primary,
+  },
+
   cardInnerContainer: {
-    width: screenWidth - 48,
     height: 200,
   },
   imageContainer: {
@@ -17,7 +33,6 @@ export const styles = StyleSheet.create({
     bottom: 10,
     left: 24,
     gap: 2,
-    width: screenWidth - 64,
   },
   titleText: {
     fontSize: 18,

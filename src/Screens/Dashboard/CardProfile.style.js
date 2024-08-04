@@ -3,12 +3,15 @@ import { Colors } from "../../Constants/Colors";
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 8,
-    marginBottom: 8,
+    paddingHorizontal: 16,
+    paddingBottom: 24,
+    backgroundColor: Colors.primary,
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16,
   },
   title: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: "semibold",
     textAlign: "center",
     color: Colors.white,
     marginBottom: 8,
@@ -17,15 +20,9 @@ export const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: Colors.white,
     borderRadius: 8,
-    elevation: 5,
-    shadowColor: Colors.black,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3,
   },
   cardHeader: {
     flexDirection: "row",
-    marginBottom: 8,
   },
   avatar: {
     backgroundColor: Colors.gray,
@@ -36,10 +33,11 @@ export const styles = StyleSheet.create({
   },
   nameContainer: {
     flex: 1,
+    justifyContent: "center",
   },
   name: {
     fontWeight: "semibold",
-    fontSize: 30,
+    fontSize: 24,
   },
   code: {
     fontWeight: "light",
@@ -47,6 +45,7 @@ export const styles = StyleSheet.create({
   },
   iconContainer: {
     flexDirection: "row",
+    alignItems: "center",
   },
   icon: {
     justifyContent: "flex-end",
@@ -55,6 +54,6 @@ export const styles = StyleSheet.create({
   },
   homecellContainer: {
     flexDirection: "row",
-    marginTop: 4,
+    gap: 8,
   },
 });

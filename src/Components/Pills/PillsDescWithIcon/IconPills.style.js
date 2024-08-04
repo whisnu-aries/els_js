@@ -8,8 +8,6 @@ export const styles = StyleSheet.create({
     paddingVertical: 4,
     paddingLeft: 8,
     paddingRight: 15,
-    marginTop: 8,
-    marginRight: 8,
     borderWidth: 1,
     borderRadius: 20,
     borderColor: Colors.primary,
@@ -23,6 +21,6 @@ export const styles = StyleSheet.create({
   },
   description: {
     fontWeight: "light",
-    color: Colors.accent,
+    color: Colors.black,
   },
 });
