@@ -1,10 +1,11 @@
 import { Image, Pressable, Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
 import {
   BellIcon,
   ChevronDownIcon as ArrowDown,
 } from "react-native-heroicons/outline";
 
-import { styles } from "./CardProfile.Style";
+import { styles } from "./DashboardTitle.Style";
 
 const renderCurrentLocation = () => (
   <View style={styles.currentLocationContainer}>
@@ -13,12 +14,16 @@ const renderCurrentLocation = () => (
   </View>
 );
 
-const renderLocation = () => (
-  <View>
-    <Text style={styles.locationLabel}>Location</Text>
-    {renderCurrentLocation()}
-  </View>
-);
+const renderLocation = () => {
+  const { t } = useTranslation();
+
+  return (
+    <View>
+      <Text style={styles.locationLabel}>{t("dashboard.location")}</Text>
+      {renderCurrentLocation()}
+    </View>
+  );
+};
 
 const renderNotificationButton = () => (
   <Pressable onPress={() => console.log("bell")}>
@@ -42,11 +47,11 @@ const renderProfile = () => (
   </View>
 );
 
-const cardProfile = () => (
+const DashboardTitle = () => (
   <View style={styles.container}>
     {renderLocation()}
     {renderProfile()}
   </View>
 );
 
-export default cardProfile;
+export default DashboardTitle;

@@ -1,5 +1,17 @@
 {
-  "welcome": "Bienvenue",
+  "dashboard": {
+    "location": "Lokasi",
+    "ongoing_event": "Acara sedang berlangsung",
+    "show_qr": "Lihatkan QR",
+    "attend": "Hadir",
+    "announcement": "Berita"
+  },
+  "verse_the_day": {
+    "title": "Ayat Hari Ini"
+  },
+  "announcement": {
+    "see_detail": "Lihat Detail"
+  },
   "home": {
     "title": "Écran d'accueil"
   },

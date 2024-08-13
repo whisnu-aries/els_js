@@ -3,20 +3,20 @@ import PropTypes from "prop-types";
 
 import { styles } from "./Pills.Style";
 
-const Pill = ({ data, handleClick }) => {
+const Pill = ({ id, name, isActive, handleClick }) => {
   return (
-    <Pressable onPress={() => handleClick(data.id)}>
-      <View style={data.isActive ? styles.activeContainer : styles.container}>
-        <Text style={data.isActive ? styles.textActive : styles.text}>
-          {data.name}
-        </Text>
+    <Pressable onPress={() => handleClick(id)}>
+      <View style={isActive ? styles.activeContainer : styles.container}>
+        <Text style={isActive ? styles.textActive : styles.text}>{name}</Text>
       </View>
     </Pressable>
   );
 };
 
 Pill.propTypes = {
-  data: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 

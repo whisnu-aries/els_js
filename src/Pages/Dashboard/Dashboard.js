@@ -1,12 +1,20 @@
-import { FlatList, View } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
+import {
+  MapPinIcon as Pin,
+  CalendarDaysIcon as Calendar,
+} from "react-native-heroicons/outline";
 
 import AnnouncementCard from "./AnnouncementCard";
-import CardProfile from "./CardProfile";
+import DashboardTitle from "./DashboardTitle";
 import VerseTheDay from "./VerseTheDay";
 
 import { styles } from "./Dashboard.Style";
 import Title from "../../Components/Text/Title";
 import Pill from "../../Components/Pill/Pills";
+import Card from "../../Components/Card/Card";
+import Subtitle from "../../Components/Text/Subtitle";
+import { Colors } from "../../Constants/Colors";
 
 const data = [
   {
@@ -82,6 +90,49 @@ const announcementData = [
   },
 ];
 
+const renderOnGoingEvent = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Card>
+      <View style={styles.eventContainer}>
+        <Title text={t("dashboard.ongoing_event")} />
+        <Image
+          style={styles.eventImage}
+          source={{
+            uri: "https://images.unsplash.com/photo-1722503281689-04fea84df54a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0M3x8fGVufDB8fHx8fA%3D%3D",
+          }}
+        />
+        <View style={styles.eventContainer}>
+          <Subtitle text="Back to Barrack 2024: Reconnecting" />
+          <View style={styles.eventDescriptionContainer}>
+            <Pin style={{ color: Colors.primary }} size={14} />
+            <Text>BTC Fashion Mall</Text>
+          </View>
+          <View style={styles.eventDescriptionContainer}>
+            <Calendar style={{ color: Colors.primary }} size={14} />
+            <Text>Sat, 17 Aug 2024</Text>
+          </View>
+        </View>
+        <View style={styles.eventButtonContainer}>
+          <Pill
+            id={1}
+            name={t("dashboard.show_qr")}
+            isActive={false}
+            handleClick={handleAnnouncementFilterClick}
+          />
+          <Pill
+            id={1}
+            name={t("dashboard.attend")}
+            isActive={true}
+            handleClick={handleAnnouncementFilterClick}
+          />
+        </View>
+      </View>
+    </Card>
+  );
+};
+
 const handleAnnouncementFilterClick = (id) => {
   console.log(id);
 };
@@ -89,26 +140,31 @@ const handleAnnouncementFilterClick = (id) => {
 const renderAnnouncementFilters = ({ item }) => {
   return (
     <Pill
-      data={item}
-      isActive={false}
+      id={item.id}
+      name={item.name}
+      isActive={item.isActive}
       handleClick={handleAnnouncementFilterClick}
     />
   );
 };
 
-const renderAnnouncementHeader = () => (
-  <>
-    <Title text="Announcements" />
-    <FlatList
-      renderItem={renderAnnouncementFilters}
-      data={announcementData}
-      keyExtractor={(item) => item.id}
-      horizontal={true}
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.announcementPillContainer}
-    />
-  </>
-);
+const renderAnnouncementHeader = () => {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <Title text={t("dashboard.announcement")} />
+      <FlatList
+        renderItem={renderAnnouncementFilters}
+        data={announcementData}
+        keyExtractor={(item) => item.id}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.announcementPillContainer}
+      />
+    </>
+  );
+};
 
 const renderAnnouncementCard = ({ item }) => <AnnouncementCard data={item} />;
 
@@ -119,6 +175,7 @@ const renderBody = () => (
     keyExtractor={(item) => item.id}
     ListHeaderComponent={
       <>
+        {renderOnGoingEvent()}
         <VerseTheDay />
         {renderAnnouncementHeader()}
       </>
@@ -129,7 +186,7 @@ const renderBody = () => (
 
 const Dashboard = () => (
   <View style={styles.container}>
-    <CardProfile />
+    <DashboardTitle />
     {renderBody()}
   </View>
 );

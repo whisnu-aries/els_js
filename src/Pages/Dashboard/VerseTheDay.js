@@ -1,4 +1,5 @@
 import { Pressable, Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
 import {
   HeartIcon as Love,
   ChatBubbleBottomCenterTextIcon as Comment,
@@ -6,11 +7,11 @@ import {
 } from "react-native-heroicons/outline";
 import { HeartIcon as Loved } from "react-native-heroicons/solid";
 
+import Card from "../../Components/Card/Card";
 import Verse from "../../Components/Verse";
 import Chapter from "../../Components/Chapter";
 
 import { styles } from "./VerseTheDay.Style";
-import Card from "../../Components/Card/Card";
 
 const handleClick = (action) => {
   console.log(action);
@@ -31,15 +32,19 @@ const renderVerseTheDayButton = () => (
   </View>
 );
 
-const verseTheDay = () => (
-  <Card>
-    <>
-      <Text style={styles.verseTheDayTitle}>Verse of the Day</Text>
-      <Chapter chapter="Hebrew 11:1 ICB" />
-      <Verse verse="Faith means being sure of the things we hope for. And faith means knowing that something is real even id we do not see it." />
-      {renderVerseTheDayButton()}
-    </>
-  </Card>
-);
+const verseTheDay = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Card>
+      <>
+        <Text style={styles.verseTheDayTitle}>{t("verse_the_day.title")}</Text>
+        <Chapter chapter="Hebrew 11:1 ICB" />
+        <Verse verse="Faith means being sure of the things we hope for. And faith means knowing that something is real even id we do not see it." />
+        {renderVerseTheDayButton()}
+      </>
+    </Card>
+  );
+};
 
 export default verseTheDay;

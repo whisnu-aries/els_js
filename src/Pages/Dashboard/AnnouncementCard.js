@@ -1,4 +1,5 @@
 import { Image, Pressable, Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import {
   HeartIcon as Love,
@@ -7,8 +8,9 @@ import {
 } from "react-native-heroicons/outline";
 import { HeartIcon as Liked } from "react-native-heroicons/solid";
 
-import { styles } from "./AnnouncementCard.Style";
 import Subtitle from "../../Components/Text/Subtitle";
+
+import { styles } from "./AnnouncementCard.Style";
 
 const renderAnnouncementPhoto = (image) => {
   return (
@@ -32,11 +34,15 @@ const handleClick = (action) => {
   console.log(action);
 };
 
-const renderLinkAnnouncementDetail = () => (
-  <Pressable onPress={() => handleClick(1)}>
-    <Text style={styles.link}>See detail</Text>
-  </Pressable>
-);
+const renderLinkAnnouncementDetail = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Pressable onPress={() => handleClick(1)}>
+      <Text style={styles.link}>{t("announcement.see_detail")}</Text>
+    </Pressable>
+  );
+};
 
 const renderAnnouncementButton = () => (
   <View style={styles.buttonContainer}>

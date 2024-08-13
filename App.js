@@ -17,7 +17,8 @@ function App() {
   useEffect(() => {
     // Set the initial language based on device locale
     const locale = getLocales()[0].languageCode;
-    i18n.changeLanguage(locale);
+    // i18n.changeLanguage(locale);
+    i18n.changeLanguage("id");
   }, []);
 
   const insets = useSafeAreaInsets();
