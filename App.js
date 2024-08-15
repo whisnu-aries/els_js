@@ -1,19 +1,23 @@
 import { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { getLocales } from "expo-localization";
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import i18n from "./src/Locales/i18n";
-import { styles } from "./App.Style";
 import { Colors } from "./src/Constants/Colors";
 
-import Dashboard from "./src/Pages/Dashboard/Dashboard";
+import Header from "./src/Components/Header/Header";
+import TabBarIcon from "./src/Components/TabBar/TabBarIcon";
 
-function App() {
+import DashboardScreen from "./src/Pages/Dashboard/Index";
+import BibleScreen from "./src/Pages/Bible/Index";
+import EventScreen from "./src/Pages/Event/Index";
+
+const Tab = createBottomTabNavigator();
+
+const App = () => {
   useEffect(() => {
     // Set the initial language based on device locale
     const locale = getLocales()[0].languageCode;
@@ -21,21 +25,34 @@ function App() {
     // i18n.changeLanguage("id");
   }, []);
 
-  const insets = useSafeAreaInsets();
-
   return (
-    <View style={styles.container}>
-      <View style={{ height: insets.top, backgroundColor: Colors.primary }}>
-        <StatusBar style="light" />
-      </View>
-      <SafeAreaView
-        style={[styles.safeAreaContainer, { paddingTop: insets.top }]}
+    <NavigationContainer>
+      <StatusBar style="dark" />
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          header: (props) => <Header {...props} />,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <TabBarIcon
+                route={route.name}
+                focused={focused}
+                color={color}
+                size={size}
+              />
+            );
+          },
+          tabBarActiveTintColor: Colors.primary,
+          tabBarInactiveTintColor: Colors.accent,
+        })}
       >
-        <Dashboard />
-      </SafeAreaView>
-    </View>
+        <Tab.Screen name="Dashboard" component={DashboardScreen} />
+        <Tab.Screen name="Bible" component={BibleScreen} />
+        <Tab.Screen name="Event" component={EventScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
 export default function Root() {
   return (

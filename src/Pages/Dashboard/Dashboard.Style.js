@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../../Constants/Colors";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.backgroundWhite,
   },
   bodyContainer: {
-    paddingHorizontal: 16,
-    paddingTop: 8,
+    padding: 16,
   },
   eventContainer: {
     gap: 4,

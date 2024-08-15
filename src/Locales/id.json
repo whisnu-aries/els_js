@@ -12,6 +12,9 @@
   "announcement": {
     "see_detail": "Lihat Detail"
   },
+  "event": {
+    "title_detail": "Detail acara"
+  },
   "home": {
     "title": "Écran d'accueil"
   },

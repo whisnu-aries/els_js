@@ -1,5 +1,6 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { Button, FlatList, Image, Text, View } from "react-native";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 import {
   MapPinIcon as Pin,
   CalendarDaysIcon as Calendar,
@@ -168,13 +169,17 @@ const renderAnnouncementHeader = () => {
 
 const renderAnnouncementCard = ({ item }) => <AnnouncementCard data={item} />;
 
-const renderBody = () => (
+const renderBody = ({ navigation }) => (
   <FlatList
     data={data}
     renderItem={renderAnnouncementCard}
     keyExtractor={(item) => item.id}
     ListHeaderComponent={
       <>
+        {/* <Button
+          title="Go to Details"
+          onPress={() => navigation.navigate("Details", { id: 1 })}
+        /> */}
         {renderOnGoingEvent()}
         <VerseTheDay />
         {renderAnnouncementHeader()}
@@ -184,11 +189,15 @@ const renderBody = () => (
   />
 );
 
-const Dashboard = () => (
+const Dashboard = ({ navigation }) => (
   <View style={styles.container}>
     <DashboardTitle />
-    {renderBody()}
+    {renderBody({ navigation })}
   </View>
 );
+
+Dashboard.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default Dashboard;

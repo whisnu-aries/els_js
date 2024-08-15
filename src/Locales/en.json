@@ -12,6 +12,9 @@
   "announcement": {
     "see_detail": "See Detail"
   },
+  "event": {
+    "title_detail": "Event Detail"
+  },
   "home": {
     "title": "Home Screen"
   },

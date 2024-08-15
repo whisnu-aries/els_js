@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   },
   locationLabel: {
     fontWeight: "light",
-    color: Colors.white,
+    color: Colors.black,
   },
   currentLocationContainer: {
     flexDirection: "row",
@@ -24,10 +24,10 @@ export const styles = StyleSheet.create({
   currentLocationText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: Colors.white,
+    color: Colors.black,
   },
   currentLocationArrow: {
-    color: Colors.white,
+    color: Colors.black,
   },
   profileContainer: {
     flexDirection: "row",
@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
   },
   notificationIcon: {
     justifyContent: "flex-end",
-    color: Colors.white,
+    color: Colors.black,
   },
   profilePicture: {
     backgroundColor: Colors.gray,
