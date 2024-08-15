@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     padding: 16,
     borderRadius: 8,
-    marginTop: 8,
+    marginVertical: 8,
     flexDirection: "row",
     gap: 8,
     backgroundColor: Colors.slate,

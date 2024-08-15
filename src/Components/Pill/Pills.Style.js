@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   textActive: {
-    color: Colors.white,
+    color: Colors.black,
     fontWeight: "bold",
   },
 });

@@ -6,8 +6,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.backgroundWhite,
   },
-  bodyContainer: {
+  bodyOuter: {
     padding: 16,
+  },
+  bodyContainer: {
+    gap: 16,
   },
   eventContainer: {
     gap: 4,
@@ -27,8 +30,10 @@ export const styles = StyleSheet.create({
     gap: 8,
     justifyContent: "flex-end",
   },
+  announcementHeader: {
+    gap: 8,
+  },
   announcementPillContainer: {
     gap: 8,
-    marginTop: 8,
   },
 });

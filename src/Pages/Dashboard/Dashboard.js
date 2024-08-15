@@ -108,7 +108,9 @@ const renderOnGoingEvent = () => {
           <Subtitle text="Back to Barrack 2024: Reconnecting" />
           <View style={styles.eventDescriptionContainer}>
             <Pin style={{ color: Colors.primary }} size={14} />
-            <Text>BTC Fashion Mall</Text>
+            <Text style={{ fontSize: 14, fontWeight: "thin" }}>
+              BTC Fashion Mall
+            </Text>
           </View>
           <View style={styles.eventDescriptionContainer}>
             <Calendar style={{ color: Colors.primary }} size={14} />
@@ -153,7 +155,7 @@ const renderAnnouncementHeader = () => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <View style={styles.announcementHeader}>
       <Title text={t("dashboard.announcement")} />
       <FlatList
         renderItem={renderAnnouncementFilters}
@@ -163,7 +165,7 @@ const renderAnnouncementHeader = () => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.announcementPillContainer}
       />
-    </>
+    </View>
   );
 };
 
@@ -175,7 +177,7 @@ const renderBody = ({ navigation }) => (
     renderItem={renderAnnouncementCard}
     keyExtractor={(item) => item.id}
     ListHeaderComponent={
-      <>
+      <View style={styles.bodyContainer}>
         {/* <Button
           title="Go to Details"
           onPress={() => navigation.navigate("Details", { id: 1 })}
@@ -183,9 +185,9 @@ const renderBody = ({ navigation }) => (
         {renderOnGoingEvent()}
         <VerseTheDay />
         {renderAnnouncementHeader()}
-      </>
+      </View>
     }
-    contentContainerStyle={styles.bodyContainer}
+    contentContainerStyle={styles.bodyOuter}
   />
 );
 
