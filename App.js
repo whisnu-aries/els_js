@@ -8,7 +8,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import i18n from "./src/Locales/i18n";
 import { Colors } from "./src/Constants/Colors";
 
-import Header from "./src/Components/Header/Header";
 import TabBarIcon from "./src/Components/TabBar/TabBarIcon";
 
 import DashboardScreen from "./src/Pages/Dashboard/Index";
@@ -30,7 +29,8 @@ const App = () => {
       <StatusBar style="dark" />
       <Tab.Navigator
         screenOptions={({ route }) => ({
-          header: (props) => <Header {...props} />,
+          // header: (props) => <Header {...props} />,
+          headerShown: false,
           tabBarShowLabel: false,
           tabBarIcon: ({ focused, color, size }) => {
             return (

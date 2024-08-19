@@ -1,5 +1,8 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { Colors } from "../../../Constants/Colors";
+
+const { height } = Dimensions.get("window");
+const ImageHeight = Math.round(height / 3);
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,19 +11,32 @@ export const styles = StyleSheet.create({
   },
   eventImage: {
     width: "100%",
-    height: 300,
-    // borderRadius: 8,
-    // marginVertical: 4,
+    height: ImageHeight,
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16,
   },
-  eventContainer: {
-    gap: 4,
-  },
-  eventBody: {
+  eventHeaderContainer: {
     padding: 16,
     gap: 8,
   },
-  eventDescriptionContainer: {
+  eventHeaderInnerContainer: {
+    gap: 4,
+  },
+  eventHeaderItem: {
     flexDirection: "row",
     gap: 4,
+  },
+  eventBodyContainer: {
+    padding: 16,
+    gap: 4,
+  },
+  eventButtonContainer: {
+    padding: 16,
+  },
+
+  divider: {
+    backgroundColor: Colors.gray,
+    width: "100%",
+    height: 2,
   },
 });

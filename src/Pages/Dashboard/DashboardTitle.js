@@ -5,6 +5,8 @@ import {
   ChevronDownIcon as ArrowDown,
 } from "react-native-heroicons/outline";
 
+import SafeArea from "../../Components/Header/Header";
+
 import { styles } from "./DashboardTitle.Style";
 
 const renderCurrentLocation = () => (
@@ -48,10 +50,13 @@ const renderProfile = () => (
 );
 
 const DashboardTitle = () => (
-  <View style={styles.container}>
-    {renderLocation()}
-    {renderProfile()}
-  </View>
+  <>
+    <SafeArea color="primary" />
+    <View style={styles.container}>
+      {renderLocation()}
+      {renderProfile()}
+    </View>
+  </>
 );
 
 export default DashboardTitle;

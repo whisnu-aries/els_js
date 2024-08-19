@@ -1,4 +1,5 @@
 import { Image, Pressable, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import {
@@ -35,10 +36,11 @@ const handleClick = (action) => {
 };
 
 const renderLinkAnnouncementDetail = () => {
+  const navigation = useNavigation();
   const { t } = useTranslation();
 
   return (
-    <Pressable onPress={() => handleClick(1)}>
+    <Pressable onPress={() => navigation.navigate("Details", { id: 1 })}>
       <Text style={styles.link}>{t("announcement.see_detail")}</Text>
     </Pressable>
   );
