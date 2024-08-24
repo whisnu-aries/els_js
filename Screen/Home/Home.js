@@ -1,6 +1,6 @@
-import { FlatList, Text, View } from "react-native";
-import propTypes from "prop-types";
+import { FlatList, View } from "react-native";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
+import propTypes from "prop-types";
 
 import Styles from "./Home.Style";
 import { announcementData } from "../../Data/data";
@@ -11,10 +11,11 @@ import CardEvent from "../../Component/Card/CardEvent";
 import CardVerseTheDay from "../../Component/Card/CardVerseTheDay";
 import HomeAnnouncementTitle from "./HomeAnnouncementTitle";
 import HomeAnnouncementCard from "./HomeAnnouncementCard";
+import { Colors } from "../../Constants/Colors";
 
 const renderHomeHeader = () => (
   <View>
-    <SafeAreaHeader />
+    <SafeAreaHeader color={Colors.primary} />
     <HomeHeader />
   </View>
 );

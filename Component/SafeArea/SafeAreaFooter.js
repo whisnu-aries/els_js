@@ -5,7 +5,7 @@ import propTypes from "prop-types";
 const SafeAreaHeader = ({ color }) => {
   const insets = useSafeAreaInsets();
 
-  return <View style={{ backgroundColor: color, height: insets.top }} />;
+  return <View style={{ backgroundColor: color, height: insets.bottom }} />;
 };
 
 SafeAreaHeader.propTypes = {

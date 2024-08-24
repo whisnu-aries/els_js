@@ -6,10 +6,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import i18n from "./Locales/i18n";
 
 import TabBar from "./Component/TabBar/TabBar";
+import EventDetail from "./Screen/Event/Detail/EventDetail";
 
 const Stack = createNativeStackNavigator();
-
-const EventDetail = () => <Text>EventDetail</Text>;
 
 function App() {
   useEffect(() => {
