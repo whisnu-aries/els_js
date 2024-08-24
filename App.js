@@ -1,15 +1,23 @@
+import { useEffect } from "react";
+import { Text } from "react-native";
+import { getLocales } from "expo-localization";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import i18n from "./Locales/i18n";
 
-import { Text } from "react-native";
-
-import Tabs from "./Components/Tab";
+import TabBar from "./Component/TabBar/TabBar";
 
 const Stack = createNativeStackNavigator();
 
 const EventDetail = () => <Text>EventDetail</Text>;
 
 function App() {
+  useEffect(() => {
+    // Set the initial language based on device locale
+    const locale = getLocales()[0].languageCode;
+    i18n.changeLanguage(locale);
+  }, []);
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -17,7 +25,7 @@ function App() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Dashboard" component={Tabs} />
+        <Stack.Screen name="Dashboard" component={TabBar} />
         <Stack.Screen name="EventDetail" component={EventDetail} />
       </Stack.Navigator>
     </NavigationContainer>

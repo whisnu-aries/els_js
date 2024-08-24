@@ -1,0 +1,24 @@
+{
+  "dashboard": {
+    "location": "Lokasi",
+    "ongoing_event": "Acara sedang berlangsung",
+    "show_qr": "Lihatkan QR",
+    "attend": "Hadir",
+    "announcement": "Berita"
+  },
+  "verse_the_day": {
+    "title": "Ayat Hari Ini"
+  },
+  "announcement": {
+    "see_detail": "Lihat Detail"
+  },
+  "event": {
+    "title_detail": "Detail acara"
+  },
+  "home": {
+    "title": "Écran d'accueil"
+  },
+  "settings": {
+    "title": "Écran des paramètres"
+  }
+}
