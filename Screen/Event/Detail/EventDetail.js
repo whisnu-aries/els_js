@@ -80,18 +80,18 @@ const renderBody = () => (
   </View>
 );
 
-const handleScroll = (event) => {
-  // setScrollY(event.nativeEvent.contentOffset.y + insets.top);
-  let scrollY = event.nativeEvent.contentOffset.y;
-  console.log(scrollY);
-};
-
 const EventDetail = () => {
   const scrollViewRef = useRef(null);
+  const [position, setPosition] = useState(0);
+
+  const handleScroll = (event) => {
+    let scrollY = event.nativeEvent.contentOffset.y;
+    setPosition(scrollY);
+  };
 
   return (
     <>
-      <EventDetailHeader />
+      <EventDetailHeader position={position} />
       <ScrollView
         ref={scrollViewRef}
         onScroll={handleScroll}

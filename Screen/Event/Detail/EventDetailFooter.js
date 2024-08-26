@@ -12,21 +12,7 @@ const handlePrimaryButton = () => {
 
 const EventDetailFooter = () => {
   return (
-    <View
-      style={{
-        position: "absolute",
-        bottom: 0,
-        width: "100%",
-        zIndex: 2,
-        backgroundColor: Colors.slate,
-        paddingVertical: 8,
-        paddingHorizontal: 16,
-        elevation: 5,
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.75,
-        shadowRadius: 4,
-      }}
-    >
+    <View style={Styles.container}>
       <PrimaryButton text="Register" onPress={handlePrimaryButton} />
       <SafeAreaFooter color={Colors.slate} />
     </View>
