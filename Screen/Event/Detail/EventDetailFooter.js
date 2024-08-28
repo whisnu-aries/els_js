@@ -10,13 +10,11 @@ const handlePrimaryButton = () => {
   console.log("a");
 };
 
-const EventDetailFooter = () => {
-  return (
-    <View style={Styles.container}>
-      <PrimaryButton text="Register" onPress={handlePrimaryButton} />
-      <SafeAreaFooter color={Colors.slate} />
-    </View>
-  );
-};
+const EventDetailFooter = () => (
+  <View style={Styles.container}>
+    <PrimaryButton text="Register" onPress={handlePrimaryButton} />
+    <SafeAreaFooter color={Colors.slate} />
+  </View>
+);
 
 export default EventDetailFooter;

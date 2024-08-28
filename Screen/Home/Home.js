@@ -22,6 +22,7 @@ const renderHomeHeader = () => (
 
 const renderAnnouncementHeader = () => {
   const data = announcementData[0];
+
   return (
     <View style={Styles.container}>
       <CardEvent data={data} />

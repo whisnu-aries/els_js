@@ -32,6 +32,11 @@ Aenean ullamcorper fermentum faucibus. Nunc sit amet accumsan sem. Morbi tincidu
 Fusce sollicitudin fermentum dui ut cursus. Aenean massa eros, dignissim in sollicitudin ac, mattis vitae ante. Phasellus eget mattis mi, malesuada ornare purus. Praesent sit amet nulla ut nunc tristique ultrices. Maecenas dignissim mauris in eros finibus, ac semper ante accumsan. Cras enim ex, porttitor vel sagittis at, mattis id quam. Cras molestie eros id quam imperdiet sodales. Cras luctus laoreet convallis."
 `;
 
+const handleScroll = (event, EventDetailMethod) => {
+  let scrollY = event.nativeEvent.contentOffset.y;
+  EventDetailMethod.setPosition(scrollY);
+};
+
 const renderImage = () => (
   <Image
     style={Styles.image}
@@ -80,21 +85,25 @@ const renderBody = () => (
   </View>
 );
 
-const EventDetail = () => {
-  const scrollViewRef = useRef(null);
+const getEventDetailMethod = () => {
   const [position, setPosition] = useState(0);
 
-  const handleScroll = (event) => {
-    let scrollY = event.nativeEvent.contentOffset.y;
-    setPosition(scrollY);
+  return {
+    position,
+    setPosition,
   };
+};
+
+const EventDetail = () => {
+  const EventDetailMethod = getEventDetailMethod();
+  const scrollViewRef = useRef(null);
 
   return (
     <>
-      <EventDetailHeader position={position} />
+      <EventDetailHeader position={EventDetailMethod.position} />
       <ScrollView
         ref={scrollViewRef}
-        onScroll={handleScroll}
+        onScroll={(event) => handleScroll(event, EventDetailMethod)}
         style={Styles.container}
       >
         {renderImage()}
