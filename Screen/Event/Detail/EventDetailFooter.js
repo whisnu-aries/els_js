@@ -1,9 +1,9 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 import Styles from "./EventDetailFooter.Style";
 import { Colors } from "../../../Constants/Colors";
 
-import PrimaryButton from "../../../Component/Button/PrimaryButton";
+import GeneralButton from "../../../Component/Button/GeneralButton";
 import SafeAreaFooter from "../../../Component/SafeArea/SafeAreaFooter";
 
 const handlePrimaryButton = () => {
@@ -13,7 +13,11 @@ const handlePrimaryButton = () => {
 const EventDetailFooter = () => {
   return (
     <View style={Styles.container}>
-      <PrimaryButton text="Register" onPress={handlePrimaryButton} />
+      <GeneralButton
+        type="primary"
+        text="Register"
+        onPress={handlePrimaryButton}
+      />
       <SafeAreaFooter color={Colors.slate} />
     </View>
   );

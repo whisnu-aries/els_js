@@ -1,4 +1,17 @@
 {
+  "authentication": {
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+    "no_account": "Don't Have an Account ? ",
+    "have_account": "Already Have an Account ? ",
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up",
+    "forgot_password": "Forgot Password",
+    "label": {
+      "full_name": "Full Name",
+      "email": "Email",
+      "password": "Password"
+    }
+  },
   "dashboard": {
     "location": "Location",
     "ongoing_event": "Ongoing Event",

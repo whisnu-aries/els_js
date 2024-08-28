@@ -1,7 +1,7 @@
 import { FlatList, View } from "react-native";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
-import propTypes from "prop-types";
 
+import { Colors } from "../../Constants/Colors";
 import Styles from "./Home.Style";
 import { announcementData } from "../../Data/data";
 
@@ -11,7 +11,6 @@ import CardEvent from "../../Component/Card/CardEvent";
 import CardVerseTheDay from "../../Component/Card/CardVerseTheDay";
 import HomeAnnouncementTitle from "./HomeAnnouncementTitle";
 import HomeAnnouncementCard from "./HomeAnnouncementCard";
-import { Colors } from "../../Constants/Colors";
 
 const renderHomeHeader = () => (
   <View>
@@ -44,7 +43,7 @@ const renderAnnouncement = () => (
   />
 );
 
-const Home = ({ navigation }) => {
+const Home = () => {
   const tabBarHeight = useBottomTabBarHeight();
   return (
     <View
@@ -54,10 +53,6 @@ const Home = ({ navigation }) => {
       {renderAnnouncement()}
     </View>
   );
-};
-
-Home.propTypes = {
-  navigation: propTypes.object.isRequired,
 };
 
 export default Home;

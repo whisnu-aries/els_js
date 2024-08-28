@@ -1,4 +1,17 @@
 {
+  "authentication": {
+    "description": "Lorem Ipsum hanyalah contoh teks dalam industri percetakan dan penataan huruf. Lorem Ipsum telah menjadi contoh teks standar dalam industri tersebut.",
+    "no_account": "Belum punya akun ? ",
+    "have_account": "Sudah punya akun ? ",
+    "sign_in": "Masuk",
+    "sign_up": "Daftar",
+    "forgot_password": "Lupa Kata Sandi",
+    "label": {
+      "full_name": "Nama Lengkap",
+      "email": "Email",
+      "password": "Kata Sandi"
+    }
+  },
   "dashboard": {
     "location": "Lokasi",
     "ongoing_event": "Acara sedang berlangsung",

@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { Text } from "react-native";
 import { getLocales } from "expo-localization";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import i18n from "./Locales/i18n";
 
 import TabBar from "./Component/TabBar/TabBar";
-import EventDetail from "./Screen/Event/Detail/EventDetail";
+import EventDetail from "./Screen/Event/Detail/Index";
+import AuthenticationScreen from "./Screen/Authentication/Index";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +24,7 @@ function App() {
           headerShown: false,
         }}
       >
+        <Stack.Screen name="Registration" component={AuthenticationScreen} />
         <Stack.Screen name="Dashboard" component={TabBar} />
         <Stack.Screen name="EventDetail" component={EventDetail} />
       </Stack.Navigator>
