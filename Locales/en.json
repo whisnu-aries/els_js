@@ -1,0 +1,24 @@
+{
+  "dashboard": {
+    "location": "Location",
+    "ongoing_event": "Ongoing Event",
+    "show_qr": "Show QR",
+    "attend": "Attend",
+    "announcement": "Announcement"
+  },
+  "verse_the_day": {
+    "title": "Verse of the Day"
+  },
+  "announcement": {
+    "see_detail": "See Detail"
+  },
+  "event": {
+    "title_detail": "Event Detail"
+  },
+  "home": {
+    "title": "Home Screen"
+  },
+  "settings": {
+    "title": "Settings Screen"
+  }
+}
