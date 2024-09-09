@@ -7,9 +7,8 @@ const renderErrorMessage = (errorMessage) => (
   <Text style={Styles.errorMessage}>{errorMessage}</Text>
 );
 
-const GeneralTextInput = ({ label, errorMessage, changeHandler, ...props }) => (
+const GeneralTextInput = ({ errorMessage, changeHandler, ...props }) => (
   <View style={Styles.container}>
-    <Text>{label}</Text>
     <TextInput
       style={[Styles.textContainer, errorMessage && Styles.textContainerError]}
       onChangeText={(text) => changeHandler(text)}
@@ -20,7 +19,6 @@ const GeneralTextInput = ({ label, errorMessage, changeHandler, ...props }) => (
 );
 
 GeneralTextInput.propTypes = {
-  label: propTypes.string.isRequired,
   errorMessage: propTypes.string,
   changeHandler: propTypes.func.isRequired,
 };

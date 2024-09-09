@@ -1,39 +1,75 @@
 import { useState } from "react";
-import { Text, View } from "react-native";
+import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  Text,
+  View,
+} from "react-native";
 import { useTranslation } from "react-i18next";
 import { useNavigation } from "@react-navigation/native";
 
 import Styles from "./SignIn.Style";
 
-import Card from "../../Component/Card/Card";
+import Header from "../../Component/Text/Header";
+import Label from "../../Component/Text/Label";
 import GeneralTextInput from "../../Component/TextInput/GeneralTextInput";
 import GeneralButton from "../../Component/Button/GeneralButton";
 import LinkButton from "../../Component/Button/LinkButton";
 
-const handleSignIn = (method) => {
-  navigation.navigate("Dashboard");
+import icon from "../../Component/Icon/login.png";
+import GeneralPasswordInput from "../../Component/TextInput/GeneralPasswordInput";
+
+const initialState = {
+  email: "",
+  password: "",
 };
 
-const renderInputEmail = (setEmail, t) => (
-  <GeneralTextInput
-    label={t("authentication.label.email")}
-    inputMode="email"
-    placeholder={t("authentication.label.email")}
-    autoCapitalize="none"
-    changeHandler={setEmail}
-  />
+const renderImage = () => (
+  <Image source={icon} style={Styles.imageContainer} resizeMode="cover" />
 );
 
-const renderInputPassword = (setPassword, t) => (
-  <GeneralTextInput
-    label={t("authentication.label.password")}
-    placeholder={t("authentication.label.password")}
-    changeHandler={setPassword}
-    secureTextEntry={true}
-  />
+const renderInputEmail = (t, method) => (
+  <View>
+    <Label text={t("authentication.label.email")} />
+    <GeneralTextInput
+      value={method.signInData.email}
+      inputMode="email"
+      changeHandler={(text) =>
+        method.setSignInData((prevState) => ({ ...prevState, email: text }))
+      }
+    />
+  </View>
 );
 
-const renderSignInButton = (t, navigation) => (
+const renderInputPassword = (t, method) => (
+  <View>
+    <Label text={t("authentication.label.password")} />
+    <GeneralPasswordInput
+      value={method.signInData.password}
+      inputMode="text"
+      changeHandler={(text) =>
+        method.setSignInData((prevState) => ({ ...prevState, password: text }))
+      }
+      showPassword={method.showPassword}
+      toggleShowPassword={() =>
+        method.setShowPassword((prevState) => !prevState)
+      }
+    />
+  </View>
+);
+
+const renderForgotPasswordButton = (t, navigation) => (
+  <View style={Styles.forgotPasswordContainer}>
+    <LinkButton
+      text={t("authentication.forgot_password")}
+      onPress={() => navigation.navigate("ForgotPassword")}
+    />
+  </View>
+);
+
+const renderButtonSignIn = (t, navigation) => (
   <GeneralButton
     type="secondary"
     text={t("authentication.sign_in")}
@@ -41,41 +77,53 @@ const renderSignInButton = (t, navigation) => (
   />
 );
 
-const renderForgetPassButton = ({ method }, t) => (
-  <LinkButton
-    text={t("authentication.forgot_password")}
-    onPress={() => method.setShowedSection("ForgotPassword")}
-  />
+const renderInputArea = (t, method, navigation) => (
+  <KeyboardAvoidingView
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    style={Styles.inputContainer}
+  >
+    {renderImage()}
+    <Header text={t("authentication.sign_in")} />
+    {renderInputEmail(t, method)}
+    {renderInputPassword(t, method)}
+    {renderForgotPasswordButton(t, navigation)}
+    {renderButtonSignIn(t, navigation)}
+  </KeyboardAvoidingView>
 );
 
-const renderInputArea = (method, signInMethod, t, navigation) => (
-  <View style={Styles.inputContainer}>
-    <Text style={Styles.title}>{t("authentication.sign_in")}</Text>
-    {renderInputEmail(signInMethod.setEmail, t)}
-    {renderInputPassword(signInMethod.setPassword, t)}
-    {renderSignInButton(t, navigation)}
-    {renderForgetPassButton(method, t)}
+const renderFooterLink = (t, navigation) => (
+  <View style={Styles.footerContainer}>
+    <Text>{t("authentication.no_account")}</Text>
+    <LinkButton
+      text={t("authentication.sign_up")}
+      onPress={() => navigation.navigate("SignUp")}
+    />
   </View>
 );
 
 const getSignInState = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [signInData, setSignInData] = useState(initialState);
+  const [showPassword, setShowPassword] = useState(false);
 
   return {
-    email,
-    setEmail,
-    password,
-    setPassword,
+    signInData,
+    setSignInData,
+    showPassword,
+    setShowPassword,
   };
 };
 
-const SignIn = (method) => {
-  const signInMethod = getSignInState();
+const SignIn = () => {
+  const method = getSignInState();
   const navigation = useNavigation();
   const { t } = useTranslation();
 
-  return <Card>{renderInputArea(method, signInMethod, t, navigation)}</Card>;
+  return (
+    <SafeAreaView style={Styles.container}>
+      {renderInputArea(t, method, navigation)}
+      {renderFooterLink(t, navigation)}
+    </SafeAreaView>
+  );
 };
 
 export default SignIn;

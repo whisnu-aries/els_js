@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    color: Colors.primary,
+    color: Colors.secondary,
   },
 });
 

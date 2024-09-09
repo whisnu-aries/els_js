@@ -21,9 +21,6 @@ const styles = StyleSheet.create({
     width: ImageWidth,
     height: ImageHeight,
   },
-  forgotPasswordContainer: {
-    alignItems: "flex-end",
-  },
   footerContainer: {
     flexDirection: "row",
   },

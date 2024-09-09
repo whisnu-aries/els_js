@@ -5,8 +5,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import i18n from "./Locales/i18n";
 
 import TabBar from "./Component/TabBar/TabBar";
+import SignIn from "./Screen/Authentication/SignIn";
+import SignUp from "./Screen/Authentication/SignUp";
+import OTP from "./Screen/Authentication/OTP";
+import ForgotPassword from "./Screen/Authentication/ForgotPassword";
+import SuccessForgotPassword from "./Screen/Authentication/SuccessForgotPassword";
 import EventDetail from "./Screen/Event/Detail/Index";
-import AuthenticationScreen from "./Screen/Authentication/Index";
+import ProfileEdit from "./Screen/Profile/Edit/Index";
+
+import { Button } from "react-native";
+import { Colors } from "./Constants/Colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,14 +27,68 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="Registration" component={AuthenticationScreen} />
-        <Stack.Screen name="Dashboard" component={TabBar} />
-        <Stack.Screen name="EventDetail" component={EventDetail} />
+      <Stack.Navigator>
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="OTP"
+          component={OTP}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ForgotPassword"
+          component={ForgotPassword}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="SuccessForgotPassword"
+          component={SuccessForgotPassword}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Dashboard"
+          component={TabBar}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="EventDetail"
+          component={EventDetail}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ProfileEdit"
+          component={ProfileEdit}
+          options={{
+            headerShown: true,
+            headerTitle: "Profile Edit",
+            headerStyle: { backgroundColor: Colors.primary },
+            headerLeft: () => (
+              <Button title="Back" onPress={() => console.log("a")} />
+            ),
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
