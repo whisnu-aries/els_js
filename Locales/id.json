@@ -1,4 +1,23 @@
 {
+  "authentication": {
+    "description": "Lorem Ipsum hanyalah contoh teks dalam industri percetakan dan penataan huruf. Lorem Ipsum telah menjadi contoh teks standar dalam industri tersebut.",
+    "no_account": "Belum punya akun ? ",
+    "have_account": "Sudah punya akun ? ",
+    "sign_in": "Masuk",
+    "sign_up": "Daftar",
+    "otp": "Masukan kode unik",
+    "otp_description": "Kami telah mengirimkan kodenya ke email kamu",
+    "submit": "Kirim",
+    "forgot_password": "Lupa Kata Sandi ?",
+    "forgot_password_description": "Lupa Kata Sandi ?",
+    "success_forgot_password": "Cek email kamu",
+    "success_forgot_password_description": "Kami telah mengirimkan link lupa password ke email kamu",
+    "label": {
+      "full_name": "Nama Lengkap",
+      "email": "Email",
+      "password": "Kata Sandi"
+    }
+  },
   "dashboard": {
     "location": "Lokasi",
     "ongoing_event": "Acara sedang berlangsung",

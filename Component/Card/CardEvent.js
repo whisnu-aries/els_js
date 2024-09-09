@@ -13,7 +13,6 @@ import Card from "./Card";
 import Title from "../Text/Title";
 import Subtitle from "../Text/Subtitle";
 import GeneralButton from "../Button/GeneralButton";
-import PrimaryButton from "../Button/PrimaryButton";
 
 const renderImage = (image) => (
   <Image
@@ -48,8 +47,8 @@ const handleAttendButton = () => {
 
 const renderButton = () => (
   <View style={Styles.buttonContainer}>
-    <GeneralButton text="Show QR" onPress={handleShowQRButton} />
-    <PrimaryButton text="Attend" onPress={handleAttendButton} />
+    <GeneralButton type="white" text="Show QR" onPress={handleShowQRButton} />
+    <GeneralButton type="primary" text="Attend" onPress={handleAttendButton} />
   </View>
 );
 
