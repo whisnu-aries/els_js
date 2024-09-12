@@ -21,7 +21,7 @@ const renderInputArea = (t, navigation) => (
     <GeneralButton
       type="secondary"
       text={t("authentication.sign_in")}
-      onPress={() => navigation.navigate("SignIn")}
+      onPress={() => navigation.replace("SignIn")}
     />
   </View>
 );

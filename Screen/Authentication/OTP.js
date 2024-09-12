@@ -21,7 +21,7 @@ const renderImage = () => (
 
 const handleOTP = (text, navigation) => {
   if (text == "123456") {
-    navigation.navigate("Dashboard");
+    navigation.replace("Dashboard");
   }
 };
 
