@@ -73,7 +73,7 @@ const renderButtonSignIn = (t, navigation) => (
   <GeneralButton
     type="secondary"
     text={t("authentication.sign_in")}
-    onPress={() => navigation.navigate("Dashboard")}
+    onPress={() => navigation.replace("Dashboard")}
   />
 );
 
