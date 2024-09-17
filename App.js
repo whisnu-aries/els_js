@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { getLocales } from "expo-localization";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import i18n from "./Locales/i18n";
 
 import TabBar from "./Component/TabBar/TabBar";
@@ -11,7 +12,8 @@ import OTP from "./Screen/Authentication/OTP";
 import ForgotPassword from "./Screen/Authentication/ForgotPassword";
 import SuccessForgotPassword from "./Screen/Authentication/SuccessForgotPassword";
 import EventDetail from "./Screen/Event/Detail/Index";
-import ProfileEdit from "./Screen/Profile/Edit/Index";
+import Test from "./Screen/bottom";
+// import ProfileEdit from "./Screen/Profile/Edit/Index";
 
 import { Button } from "react-native";
 import { Colors } from "./Constants/Colors";
@@ -26,58 +28,73 @@ function App() {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="SignIn"
-          component={SignIn}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="SignUp"
-          component={SignUp}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="OTP"
-          component={OTP}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="ForgotPassword"
-          component={ForgotPassword}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="SuccessForgotPassword"
-          component={SuccessForgotPassword}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Dashboard"
-          component={TabBar}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="EventDetail"
-          component={EventDetail}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
+    <GestureHandlerRootView>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {/* <Stack.Screen
+            name="Test"
+            component={Test}
+            options={{
+              headerShown: false,
+            }}
+          /> */}
+          <Stack.Screen
+            name="Dashboard"
+            component={TabBar}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="SignIn"
+            component={SignIn}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="SignUp"
+            component={SignUp}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="OTP"
+            component={OTP}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="ForgotPassword"
+            component={ForgotPassword}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="SuccessForgotPassword"
+            component={SuccessForgotPassword}
+            options={{
+              headerShown: false,
+            }}
+          />
+          {/* <Stack.Screen
+            name="Dashboard"
+            component={TabBar}
+            options={{
+              headerShown: false,
+            }}
+          /> */}
+          <Stack.Screen
+            name="EventDetail"
+            component={EventDetail}
+            options={{
+              headerShown: false,
+            }}
+          />
+          {/* <Stack.Screen
           name="ProfileEdit"
           component={ProfileEdit}
           options={{
@@ -88,9 +105,10 @@ function App() {
               <Button title="Back" onPress={() => console.log("a")} />
             ),
           }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+        /> */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 

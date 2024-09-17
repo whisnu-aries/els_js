@@ -3,7 +3,9 @@ import { Colors } from "../../Constants/Colors";
 
 const styles = StyleSheet.create({
   screenBackground: {
+    flex: 1,
     backgroundColor: Colors.backgroundWhite,
+    // backgroundColor: "red",
   },
   container: {
     flex: 1,

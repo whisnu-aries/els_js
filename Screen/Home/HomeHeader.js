@@ -43,7 +43,7 @@ const renderProfileButton = () => (
 const renderProfile = () => (
   <View style={Styles.profileContainer}>
     {renderNotificationButton()}
-    {renderProfileButton()}
+    {/* {renderProfileButton()} */}
   </View>
 );
 
